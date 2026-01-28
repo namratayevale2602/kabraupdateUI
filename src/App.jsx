@@ -12,6 +12,7 @@ import Contact from "./pages/Contact/Contact";
 import Categorydetail from "./pages/Categorydetail/Categorydetail";
 import OccasionCategory from "./pages/Home/OccasionsCategory";
 import OccasionCategoryDetail from "./pages/OccasionDetail/OccasionCategoryDetail";
+import About from "./pages/aboutus/About";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="about" element={<About />} />
         <Route path="Categorydetail/:slug" element={<Categorydetail />} />
         {/* <Route path="occasion/:slug" element={<OccasionCategory />} /> */}
         <Route path="occasion" element={<OccasionCategory />} />

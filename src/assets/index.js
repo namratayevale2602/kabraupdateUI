@@ -112,6 +112,8 @@ import tussarsilkprinted1 from "./sarees/tussarsilkprinted1.png";
 
 import weddingsaree from "./sarees/weddingsaree.png";
 import weddingsaree1 from "./sarees/weddingsaree1.png";
+import desginerSaree1 from "./sarees/desginerSaree1.png";
+import desginerSaree2 from "./sarees/desginerSaree2.png";
 
 import bandhanilehenga from "./lengha/bandhanilehenga.png";
 import bandhanilehenga1 from "./lengha/bandhanilehenga1.png";
@@ -293,6 +295,8 @@ export {
   pureHandloomSilk,
   pureHandloomSilk1,
   KanchipuramBrocket,
+  desginerSaree1,
+  desginerSaree2,
 };
 
 // old

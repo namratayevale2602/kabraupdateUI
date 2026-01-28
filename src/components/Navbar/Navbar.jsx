@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Add this import
+import { useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
@@ -14,17 +14,16 @@ import {
 import { kabralogo } from "../../assets/index";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Updated categories with proper slugs for routing
   const categories = [
     {
       id: 1,
       name: "Sarees",
-      slug: "sarees", // Add slug for routing
+      slug: "sarees",
       subcategories: [
         { name: "Banarasi Silk", slug: "sarees" },
         { name: "Kanjeevaram", slug: "sarees" },
@@ -36,7 +35,7 @@ const Navbar = () => {
     {
       id: 2,
       name: "Lehengas",
-      slug: "lehengas", // Add slug for routing
+      slug: "lehengas",
       subcategories: [
         { name: "Bridal Lehenga", slug: "lehengas" },
         { name: "Designer Lehenga", slug: "lehengas" },
@@ -48,7 +47,7 @@ const Navbar = () => {
     {
       id: 3,
       name: "Salwar Suits",
-      slug: "salwarsuite", // Add slug for routing
+      slug: "salwarsuite",
       subcategories: [
         { name: "Readymade Suites", slug: "salwarsuite" },
         { name: "Anarkali", slug: "salwarsuite" },
@@ -60,7 +59,7 @@ const Navbar = () => {
     {
       id: 4,
       name: "Designer Wear",
-      slug: "salwarsuite", // Add slug for routing
+      slug: "salwarsuite",
       subcategories: [
         { name: "Designer Sarees", slug: "sarees" },
         { name: "Designer Lehengas", slug: "lehengas" },
@@ -72,7 +71,7 @@ const Navbar = () => {
     {
       id: 5,
       name: "Fabrics",
-      slug: "salwarsuite", // Add slug for routing
+      slug: "salwarsuite",
       subcategories: [
         { name: "Silk Fabrics", slug: "fabrics" },
         { name: "Cotton Fabrics", slug: "fabrics" },
@@ -84,7 +83,7 @@ const Navbar = () => {
     {
       id: 6,
       name: "Custom Tailoring",
-      slug: "sarees", // Add slug for routing
+      slug: "sarees",
       subcategories: [
         { name: "Blouse Design", slug: "custom" },
         { name: "Lehenga Stitching", slug: "custom" },
@@ -95,12 +94,11 @@ const Navbar = () => {
     },
   ];
 
-  // Mobile bottom navigation items
   const mobileNavItems = [
     {
       icon: <Home size={20} />,
       label: "Home",
-      action: () => navigate("/"), // Use navigate instead of window.location
+      action: () => navigate("/"),
     },
     {
       icon: <Search size={20} />,
@@ -110,26 +108,36 @@ const Navbar = () => {
     {
       icon: <ContactIcon size={20} />,
       label: "Enquiry",
-      action: () => navigate("/enquiry"), // Use navigate
+      action: () => navigate("/contact"),
     },
   ];
 
-  // Function to handle category click
   const handleCategoryClick = (slug) => {
     navigate(`/Categorydetail/${slug}`);
-    setIsSidebarOpen(false); // Close sidebar after navigation
+    setIsSidebarOpen(false);
   };
 
-  // Function to handle subcategory click
   const handleSubcategoryClick = (slug) => {
     navigate(`/Categorydetail/${slug}`);
-    setIsSidebarOpen(false); // Close sidebar after navigation
+    setIsSidebarOpen(false);
   };
 
   return (
     <>
+      {/* Add CSS to prevent horizontal scroll */}
+      <style jsx>{`
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 1024px) {
+          body,
+          html {
+            overflow-x: hidden;
+            position: relative;
+          }
+        }
+      `}</style>
+
       {/* Main Navbar */}
-      <nav className="flex items-center justify-between px-4 lg:px-50 bg-white shadow-sm sticky top-0 z-50">
+      <nav className="flex items-center justify-between px-4 lg:px-50 bg-white shadow-sm sticky top-0 z-50 w-full">
         {/* Left: Logo */}
         <div
           className="flex items-center cursor-pointer"
@@ -187,6 +195,7 @@ const Navbar = () => {
         className={`lg:hidden fixed inset-0 bg-white z-50 transition-transform duration-300 ${
           isSearchOpen ? "translate-y-0" : "-translate-y-full"
         }`}
+        style={{ overflowY: "auto" }} // Allow vertical scroll
       >
         <div className="p-4 pt-6">
           <div className="flex items-center justify-between mb-6">
@@ -249,23 +258,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Bottom Navigation */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40">
-        <div className="flex justify-around items-center">
+      {/* Fixed Mobile Bottom Navigation */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40 w-screen overflow-hidden">
+        <div className="flex justify-around items-center w-full px-2">
           {mobileNavItems.map((item, index) => (
             <button
               key={index}
               onClick={item.action}
-              className="flex flex-col items-center active:opacity-70 transition-opacity"
+              className="flex flex-col items-center justify-center active:opacity-70 transition-opacity flex-1 min-w-0 px-1"
             >
               <div
-                className={`p-2 rounded-full mb-1 ${
+                className={`p-2 rounded-full ${
                   item.label === "Search" ? "text-[#eb8749]" : "text-gray-600"
                 }`}
               >
                 {item.icon}
               </div>
-              <span className="text-xs font-medium text-gray-700">
+              <span className="text-xs font-medium text-gray-700 truncate w-full text-center">
                 {item.label}
               </span>
             </button>
@@ -283,10 +292,11 @@ const Navbar = () => {
         onClick={() => setIsSidebarOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-full md:w-[380px] bg-white shadow-xl transform transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-full md:w-[380px] bg-white shadow-xl transform transition-transform duration-300 overflow-y-auto ${
             isSidebarOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
+          style={{ maxWidth: "100vw" }} // Ensure sidebar doesn't exceed viewport
         >
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -307,7 +317,7 @@ const Navbar = () => {
           </div>
 
           {/* Sidebar Content */}
-          <div className="overflow-y-auto h-full pb-32">
+          <div className="overflow-y-auto h-[calc(100%-60px)] pb-4">
             <div className="p-4">
               {/* Quick Filters */}
               <div className="mb-6">
@@ -319,7 +329,7 @@ const Navbar = () => {
                     <button
                       key={category.id}
                       onClick={() => handleCategoryClick(category.slug)}
-                      className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition-colors"
+                      className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition-colors whitespace-nowrap"
                     >
                       {category.name}
                     </button>
@@ -373,7 +383,7 @@ const Navbar = () => {
               </div>
 
               {/* Sidebar Footer */}
-              <div className="mt-6 p-4 bg-gradient-to-r from-[#eb8749]/5 to-[#7b3306]/5 rounded-lg border border-orange-100">
+              <div className="mt-6 p-4 bg-linear-to-r from-[#eb8749]/5 to-[#7b3306]/5 rounded-lg border border-orange-100">
                 <h4 className="font-semibold text-gray-800 mb-3">
                   Special Collections
                 </h4>
@@ -399,7 +409,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Content Padding for Mobile Bottom Nav */}
+      {/* Add padding to main content to avoid overlap with bottom nav */}
       <div className="lg:hidden"></div>
     </>
   );

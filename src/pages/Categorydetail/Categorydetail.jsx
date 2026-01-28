@@ -73,8 +73,8 @@ const categoryData = {
             name: "Pure Designer Embroidery Saree",
             slug: "pure-designer-embroidery",
             images: [
-              images.banarasisilk,
-              images.banarasisilk1,
+              images.desginerSaree1,
+              images.desginerSaree2,
               images.banarasisilk3,
             ],
           },
@@ -447,7 +447,7 @@ export default function Categorydetail() {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Breadcrumb */}
-          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-1">
             <button
               onClick={() => navigate("/")}
               className="hover:text-amber-600 transition-colors"
@@ -459,18 +459,18 @@ export default function Categorydetail() {
           </nav>
 
           {/* Title */}
-          <div className="mb-6">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <div className="mb-2">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
               {data.title}
             </h1>
-            <div className="w-20 h-1 bg-amber-500 mt-3 mb-4"></div>
+            <div className="w-20 h-1 bg-amber-500 my-2"></div>
             <p className="text-gray-600 max-w-3xl">{data.description}</p>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         {/* Category Navigation */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">

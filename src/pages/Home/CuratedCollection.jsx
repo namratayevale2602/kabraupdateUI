@@ -345,7 +345,7 @@ export default function CuratedCollection() {
               {items.map((item, index) => (
                 <div
                   key={`${item.id}-${index}`}
-                  className="flex-shrink-0 flex flex-col items-center"
+                  className="shrink-0 flex flex-col items-center"
                 >
                   {/* Updated IMG TAG With Shape */}
                   <div className="w-[140px] h-[180px] md:w-[210px] md:h-[230px] rounded-b-[60px] overflow-hidden">
@@ -362,9 +362,6 @@ export default function CuratedCollection() {
                 </div>
               ))}
             </div>
-
-            {/* ----------- LINE AFTER IMAGES ----------- */}
-            <div className="w-full h-[2px] bg-[#5c2c1a] my-8"></div>
           </div>
 
           {/* ---------------- BOTTOM SLIDER STRIP WITH BACKGROUND IMAGE ---------------- */}

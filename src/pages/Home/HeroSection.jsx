@@ -16,9 +16,9 @@ const HeroSection = () => {
         "Discover our exclusive range of handpicked sarees, crafted with precision and traditional artistry. Experience luxury in every weave.",
       mobileDescription:
         "Discover exclusive sarees crafted with traditional artistry.",
-      image: kabra5,
-      link: "/collections/premium",
-      category: "Premium Collection",
+      image: kabra17,
+      link: "/Categorydetail/sarees",
+      category: "Saree's",
       gradient: "bg-gradient-to-r from-amber-800/80 to-amber-600/60",
     },
     {
@@ -28,9 +28,9 @@ const HeroSection = () => {
       description:
         "Make your special day unforgettable with our exquisite bridal saree collection. Handcrafted perfection for the modern bride.",
       mobileDescription: "Exquisite bridal sarees for your special day.",
-      image: kabra17,
-      link: "/collections/bridal",
-      category: "Bridal Wear",
+      image: kabra5,
+      link: "/Categorydetail/lehengas",
+      category: "Lehenga's",
       gradient: "bg-gradient-to-r from-amber-800/80 to-amber-600/60",
     },
     {
@@ -41,20 +41,8 @@ const HeroSection = () => {
         "Stay comfortable and stylish with our summer collection featuring lightweight fabrics, vibrant prints, and modern designs.",
       mobileDescription: "Lightweight fabrics for summer comfort.",
       image: kabra12,
-      link: "/collections/summer",
-      category: "Summer Wear",
-      gradient: "bg-gradient-to-r from-amber-800/80 to-amber-600/60",
-    },
-    {
-      id: 4,
-      title: "Festive Collection: Celebrate in Style",
-      mobileTitle: "Festive Style",
-      description:
-        "Add sparkle to your celebrations with our festive collection. Traditional designs meet contemporary fashion.",
-      mobileDescription: "Sparkling sarees for festive celebrations.",
-      image: kabra14,
-      link: "/collections/festive",
-      category: "Festive Wear",
+      link: "/Categorydetail/salwarsuite",
+      category: "Salwar Suit's",
       gradient: "bg-gradient-to-r from-amber-800/80 to-amber-600/60",
     },
   ];
@@ -113,14 +101,14 @@ const HeroSection = () => {
       </div>
 
       {/* Content Container with Gradient Overlay */}
-      <div className="relative mt-20 md:mt-30 h-full max-w-10xl mx-auto px-3 sm:px-4 md:px-8 flex items-center">
+      <div className="relative mt-20 ml-10 md:mt-30 h-full max-w-10xl mx-auto px-3 sm:px-4 md:px-8 flex items-center">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 30 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className={` backdrop-blur-sm bg-white/10 rounded-2xl p-4 sm:p-3 md:p-8 lg:p-5 text-white max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl`}
+          className={` bg-black/30 rounded-2xl p-4 sm:p-3 md:p-8 lg:p-5 text-white max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl`}
         >
           {/* Category Tag */}
           <motion.div
@@ -139,7 +127,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold md:mb-4 leading-tight"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold md:mb-3 leading-tight"
           >
             <span className="md:hidden">
               {heroSlides[currentSlide].mobileTitle}
@@ -154,7 +142,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-sm sm:text-base md:text-lg md:mb-8 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg md:mb-3 leading-relaxed"
           >
             <span className="md:hidden">
               {heroSlides[currentSlide].mobileDescription}
@@ -165,18 +153,18 @@ const HeroSection = () => {
           </motion.p>
 
           {/* CTA Button */}
-          {/* <motion.a
+          <motion.a
             href={heroSlides[currentSlide].link}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-white text-amber-700 font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-amber-50 transition-all duration-300 text-sm sm:text-base md:text-lg group"
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.5, delay: 0.6 }}
+            className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2 md:px-6 md:py-3 bg-white text-amber-700 font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-amber-50 transition-all duration-300 text-sm sm:text-base md:text-lg group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Shop Now
+            Explore Collection
             <ArrowRight className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
-          </motion.a> */}
+          </motion.a>
         </motion.div>
       </div>
 
