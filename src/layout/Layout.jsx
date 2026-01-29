@@ -6,15 +6,44 @@ import Footer from "../components/Footer/Footer";
 import FloatingButtons from "../components/FloatingButtons/FloatingButtons";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
+import { bg2, mobilebg } from "../assets/index";
+
 function Layout() {
   return (
-    <div className="">
-      <ScrollToTop />
-      <Navbar />
-      {/* <WhatsAppPopup /> */}
-      <FloatingButtons />
-      <Outlet />
-      <Footer />
+    <div className="relative min-h-screen">
+      {/* Background Image with lower opacity */}
+      <div
+        className="fixed inset-0 z-0 opacity-25"
+        style={{
+          backgroundImage: `url(${bg2})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      />
+
+      {/* Mobile-specific background overlay */}
+      <div
+        className="fixed inset-0 z-0 opacity-20 lg:hidden"
+        style={{
+          backgroundImage: `url(${mobilebg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      />
+
+      {/* Content with higher z-index */}
+      <div className="relative z-10">
+        <ScrollToTop />
+        <Navbar />
+        {/* <WhatsAppPopup /> */}
+        <FloatingButtons />
+        <Outlet />
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -10,86 +10,176 @@ import {
   ChevronRight,
   Home,
   ContactIcon,
+  Info,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { kabralogo } from "../../assets/index";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [expandedCategory, setExpandedCategory] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const categories = [
+  // Navigation items with dropdown structure
+  const navItems = [
     {
-      id: 1,
-      name: "Sarees",
-      slug: "sarees",
-      subcategories: [
-        { name: "Banarasi Silk", slug: "sarees" },
-        { name: "Kanjeevaram", slug: "sarees" },
-        { name: "Paithani", slug: "sarees" },
-        { name: "Chanderi", slug: "sarees" },
-        { name: "Mysore Silk", slug: "sarees" },
-      ],
+      type: "link",
+      label: "Home",
+      icon: <Home size={18} />,
+      action: () => {
+        navigate("/");
+        setIsSidebarOpen(false);
+      },
     },
     {
-      id: 2,
-      name: "Lehengas",
-      slug: "lehengas",
-      subcategories: [
-        { name: "Bridal Lehenga", slug: "lehengas" },
-        { name: "Designer Lehenga", slug: "lehengas" },
-        { name: "Party Wear", slug: "lehengas" },
-        { name: "Mehendi Lehenga", slug: "lehengas" },
-        { name: "Sangeet Lehenga", slug: "lehengas" },
-      ],
+      type: "link",
+      label: "About Us",
+      icon: <Info size={18} />,
+      action: () => {
+        navigate("/about");
+        setIsSidebarOpen(false);
+      },
     },
     {
-      id: 3,
-      name: "Salwar Suits",
-      slug: "salwarsuite",
-      subcategories: [
-        { name: "Readymade Suites", slug: "salwarsuite" },
-        { name: "Anarkali", slug: "salwarsuite" },
-        { name: "Sharara Suit", slug: "salwarsuite" },
-        { name: "Palazzo Suit", slug: "salwarsuite" },
-        { name: "Plus Size", slug: "salwarsuite" },
-      ],
+      type: "link",
+      label: "Contact Us",
+      icon: <ContactIcon size={18} />,
+      action: () => {
+        navigate("/contact");
+        setIsSidebarOpen(false);
+      },
     },
     {
-      id: 4,
-      name: "Designer Wear",
-      slug: "salwarsuite",
-      subcategories: [
-        { name: "Designer Sarees", slug: "sarees" },
-        { name: "Designer Lehengas", slug: "lehengas" },
-        { name: "Designer Suits", slug: "salwarsuite" },
-        { name: "Party Wear", slug: "designer" },
-        { name: "Bridal Collection", slug: "designer" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Fabrics",
-      slug: "salwarsuite",
-      subcategories: [
-        { name: "Silk Fabrics", slug: "fabrics" },
-        { name: "Cotton Fabrics", slug: "fabrics" },
-        { name: "Banarasi Fabrics", slug: "fabrics" },
-        { name: "Paithani Fabrics", slug: "fabrics" },
-        { name: "Designer Fabrics", slug: "fabrics" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Custom Tailoring",
-      slug: "sarees",
-      subcategories: [
-        { name: "Blouse Design", slug: "custom" },
-        { name: "Lehenga Stitching", slug: "custom" },
-        { name: "Suit Tailoring", slug: "custom" },
-        { name: "Bridal Wear", slug: "custom" },
-        { name: "Men's Ethnic", slug: "custom" },
+      type: "dropdown",
+      label: "Categories",
+      icon: <Menu size={18} />,
+      subItems: [
+        {
+          label: "Sarees",
+          subItems: [
+            {
+              label: "Kanchipuram Sarees",
+              subItems: [
+                { label: "Kanchipuram Pure Silk Sarees", slug: "sarees" },
+                { label: "Kanchipuram Pure Half Fine Jari", slug: "sarees" },
+              ],
+            },
+            {
+              label: "Banarasi Sarees",
+              subItems: [
+                { label: "Banarasi Silk Sarees", slug: "sarees" },
+                { label: "Banarasi Kadhwa Sarees", slug: "sarees" },
+                { label: "Banarasi Tussar Weaving", slug: "sarees" },
+                { label: "Banarasi Organza", slug: "sarees" },
+                { label: "Banarasi Georgette Saree", slug: "sarees" },
+                { label: "Banarasi Tissue Saree", slug: "sarees" },
+              ],
+            },
+            {
+              label: "Designer Sarees",
+              subItems: [
+                { label: "Pure Designer Embroidery Saree", slug: "sarees" },
+                { label: "Fancy Sarees", slug: "sarees" },
+                { label: "Organza Sarees", slug: "sarees" },
+                { label: "Bandhani Sarees", slug: "sarees" },
+                { label: "Fancy Weaving Saree", slug: "sarees" },
+                { label: "Ready Blouse Sarees", slug: "sarees" },
+                { label: "Pure Tussar Embroidery Sarees", slug: "sarees" },
+                { label: "Ready To Wear Saree", slug: "sarees" },
+                { label: "Handloom Silk Embroidery Sarees", slug: "sarees" },
+              ],
+            },
+            {
+              label: "Pure Handloom Silk Saree",
+              subItems: [
+                { label: "Handloom Sarees", slug: "sarees" },
+                { label: "Gadwal Silk", slug: "sarees" },
+                { label: "Paithani Sarees", slug: "sarees" },
+                { label: "Chanderi Saree", slug: "sarees" },
+                { label: "Ikkat & Patola Saree", slug: "sarees" },
+                { label: "Keta Silk Saree", slug: "sarees" },
+                { label: "Patan Patola", slug: "sarees" },
+                { label: "Pashmina Sarees", slug: "sarees" },
+              ],
+            },
+            {
+              label: "Printed Saree",
+              subItems: [
+                { label: "Designer Printed Saree", slug: "sarees" },
+                { label: "Tussar Printed Saree", slug: "sarees" },
+                { label: "Kalamkari Silk Saree", slug: "sarees" },
+                { label: "Silk Printed Saree", slug: "sarees" },
+              ],
+            },
+            {
+              label: "Occasion",
+              subItems: [
+                { label: "Wedding Saree", slug: "sarees" },
+                { label: "Festive Wear Saree", slug: "sarees" },
+                { label: "Party Wear Saree", slug: "sarees" },
+                { label: "Mehendi Sarees", slug: "sarees" },
+                { label: "Reception sarees", slug: "sarees" },
+                { label: "Haldi Sarees", slug: "sarees" },
+              ],
+            },
+          ],
+        },
+        {
+          label: "Lehengas",
+          subItems: [
+            {
+              label: "Style",
+              subItems: [
+                { label: "Ready To Ship", slug: "lehengas" },
+                { label: "Bridal Lehenga", slug: "lehengas" },
+                { label: "Designer Lehenga", slug: "lehengas" },
+                { label: "Jacket Lehenga", slug: "lehengas" },
+                { label: "Bridesmaids Lehenga", slug: "lehengas" },
+                { label: "Crop Top Lehenga", slug: "lehengas" },
+                { label: "Bandhani Lehenga", slug: "lehengas" },
+                { label: "Fishcut Lehenga", slug: "lehengas" },
+              ],
+            },
+            {
+              label: "Occasions",
+              subItems: [
+                { label: "Wedding Lehenga", slug: "lehengas" },
+                { label: "Reception Lehenga", slug: "lehengas" },
+                { label: "Party Wear Lehenga", slug: "lehengas" },
+                { label: "Mehendi Lehenga", slug: "lehengas" },
+                { label: "Sangeet Lehenga", slug: "lehengas" },
+                { label: "Engagement Lehenga", slug: "lehengas" },
+              ],
+            },
+          ],
+        },
+        {
+          label: "Salwar Suits",
+          subItems: [
+            {
+              label: "Style",
+              subItems: [
+                { label: "Readymade Suites", slug: "salwarsuite" },
+                { label: "Anarkali", slug: "salwarsuite" },
+                { label: "Straight Cut Suit", slug: "salwarsuite" },
+                { label: "Sharara Suit", slug: "salwarsuite" },
+                { label: "Palazzo Suit", slug: "salwarsuite" },
+              ],
+            },
+
+            {
+              label: "Unstitched Salwars",
+              subItems: [
+                { label: "Embroidery Unstitched Salwars", slug: "salwarsuite" },
+                { label: "Cotton Unstitched Salwars", slug: "salwarsuite" },
+                { label: "Banarasi Unstitched Salwars", slug: "salwarsuite" },
+                { label: "Paithani Unstitched Salwars", slug: "salwarsuite" },
+              ],
+            },
+          ],
+        },
       ],
     },
   ];
@@ -117,16 +207,74 @@ const Navbar = () => {
     setIsSidebarOpen(false);
   };
 
-  const handleSubcategoryClick = (slug) => {
-    navigate(`/Categorydetail/${slug}`);
-    setIsSidebarOpen(false);
+  // Component for dropdown items
+  const DropdownItem = ({ item, level = 0 }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const hasSubItems = item.subItems && item.subItems.length > 0;
+    const isLeafNode = !hasSubItems && item.slug;
+
+    const handleClick = () => {
+      if (isLeafNode) {
+        handleCategoryClick(item.slug);
+        setIsSidebarOpen(false);
+      } else if (hasSubItems) {
+        setIsExpanded(!isExpanded);
+      }
+    };
+
+    return (
+      <>
+        <button
+          onClick={handleClick}
+          className={`w-full flex items-center justify-between p-3 hover:bg-orange-50 transition-colors ${
+            level === 0 ? "border-b border-gray-100" : ""
+          }`}
+          style={{ paddingLeft: `${20 + level * 16}px` }}
+        >
+          <div className="flex items-center space-x-3">
+            {level === 0 && item.icon && (
+              <div className="text-gray-600">{item.icon}</div>
+            )}
+            <div className="text-left">
+              <div
+                className={`font-medium ${
+                  level === 0 ? "text-gray-800" : "text-gray-700"
+                }`}
+              >
+                {item.label}
+              </div>
+            </div>
+          </div>
+
+          {hasSubItems && (
+            <div className="text-gray-400">
+              {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </div>
+          )}
+
+          {isLeafNode && <ChevronRight size={16} className="text-gray-400" />}
+        </button>
+
+        {/* Sub-items */}
+        {hasSubItems && isExpanded && (
+          <div className="bg-gray-50/50">
+            {item.subItems.map((subItem, idx) => (
+              <DropdownItem
+                key={`${item.label}-${idx}`}
+                item={subItem}
+                level={level + 1}
+              />
+            ))}
+          </div>
+        )}
+      </>
+    );
   };
 
   return (
     <>
-      {/* Add CSS to prevent horizontal scroll */}
       <style jsx>{`
-        /* Prevent horizontal scroll on mobile */
         @media (max-width: 1024px) {
           body,
           html {
@@ -134,11 +282,29 @@ const Navbar = () => {
             position: relative;
           }
         }
+
+        /* Custom scrollbar for sidebar */
+        .sidebar-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #d1d5db #f9fafb;
+        }
+
+        .sidebar-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .sidebar-scrollbar::-webkit-scrollbar-track {
+          background: #f9fafb;
+        }
+
+        .sidebar-scrollbar::-webkit-scrollbar-thumb {
+          background-color: #d1d5db;
+          border-radius: 2px;
+        }
       `}</style>
 
       {/* Main Navbar */}
       <nav className="flex items-center justify-between px-4 lg:px-50 bg-white shadow-sm sticky top-0 z-50 w-full">
-        {/* Left: Logo */}
         <div
           className="flex items-center cursor-pointer"
           onClick={() => navigate("/")}
@@ -150,7 +316,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Center: Search Bar (Desktop Only) */}
         <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
           <div className="relative w-full">
             <input
@@ -170,9 +335,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right: Desktop Categories Button and Mobile Menu */}
         <div className="flex items-center space-x-4">
-          {/* Desktop Categories Button */}
           <button
             onClick={() => setIsSidebarOpen(true)}
             className="hidden lg:flex items-center space-x-2 px-4 py-2.5 rounded-lg text-[#7b3306] hover:opacity-90 transition-all duration-300"
@@ -180,7 +343,6 @@ const Navbar = () => {
             <Menu size={20} className="" />
           </button>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsSidebarOpen(true)}
             className="lg:hidden p-2 hover:bg-orange-50 rounded-lg transition-colors"
@@ -190,12 +352,12 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Search Overlay */}
+      {/* Mobile Search Overlay (keep existing) */}
       <div
         className={`lg:hidden fixed inset-0 bg-white z-50 transition-transform duration-300 ${
           isSearchOpen ? "translate-y-0" : "-translate-y-full"
         }`}
-        style={{ overflowY: "auto" }} // Allow vertical scroll
+        style={{ overflowY: "auto" }}
       >
         <div className="p-4 pt-6">
           <div className="flex items-center justify-between mb-6">
@@ -258,7 +420,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Fixed Mobile Bottom Navigation */}
+      {/* Fixed Mobile Bottom Navigation (keep existing) */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40 w-screen overflow-hidden">
         <div className="flex justify-around items-center w-full px-2">
           {mobileNavItems.map((item, index) => (
@@ -282,7 +444,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sidebar */}
+      {/* Sidebar with new structure */}
       <div
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           isSidebarOpen
@@ -292,20 +454,20 @@ const Navbar = () => {
         onClick={() => setIsSidebarOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-full md:w-[380px] bg-white shadow-xl transform transition-transform duration-300 overflow-y-auto ${
+          className={`absolute right-0 top-0 h-full w-full md:w-[380px] bg-white shadow-xl transform transition-transform duration-300 overflow-hidden ${
             isSidebarOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
-          style={{ maxWidth: "100vw" }} // Ensure sidebar doesn't exceed viewport
+          style={{ maxWidth: "100vw" }}
         >
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <div className="flex items-center space-x-3">
               <div>
                 <div className="font-bold text-gray-800 text-lg">
-                  Categories
+                  Navigation
                 </div>
-                <p className="text-sm text-gray-500">Browse collections</p>
+                <p className="text-sm text-gray-500">Browse all categories</p>
               </div>
             </div>
             <button
@@ -317,73 +479,40 @@ const Navbar = () => {
           </div>
 
           {/* Sidebar Content */}
-          <div className="overflow-y-auto h-[calc(100%-60px)] pb-4">
-            <div className="p-4">
-              {/* Quick Filters */}
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Shop by Type
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => handleCategoryClick(category.slug)}
-                      className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition-colors whitespace-nowrap"
-                    >
-                      {category.name}
-                    </button>
-                  ))}
-                </div>
+          <div className="sidebar-scrollbar overflow-y-auto h-[calc(100%-60px)]">
+            <div className="p-1">
+              {/* Navigation Items */}
+              <div className="space-y-0">
+                {navItems.map((item, index) => {
+                  if (item.type === "link") {
+                    return (
+                      <button
+                        key={index}
+                        onClick={item.action}
+                        className="w-full flex items-center space-x-3 p-3 hover:bg-orange-50 rounded-lg transition-colors text-left border-b border-gray-100"
+                      >
+                        <div className="text-gray-600">{item.icon}</div>
+                        <span className="font-medium text-gray-800">
+                          {item.label}
+                        </span>
+                      </button>
+                    );
+                  }
+
+                  if (item.type === "dropdown") {
+                    return (
+                      <div key={index}>
+                        <DropdownItem item={item} />
+                      </div>
+                    );
+                  }
+
+                  return null;
+                })}
               </div>
 
-              {/* Categories */}
-              <div className="space-y-1">
-                {categories.map((category) => (
-                  <div
-                    key={category.id}
-                    className="border-b border-gray-100 last:border-0"
-                  >
-                    <button
-                      onClick={() => handleCategoryClick(category.slug)}
-                      className="w-full flex items-center justify-between p-3 hover:bg-orange-50 rounded-lg transition-colors"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <div className="text-left">
-                          <div className="font-medium text-gray-800">
-                            {category.name}
-                          </div>
-                          <div className="text-xs text-gray-500">
-                            {category.subcategories.length} subcategories
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-
-                    {/* Subcategories */}
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        activeCategory === category.id ? "max-h-96" : "max-h-0"
-                      }`}
-                    >
-                      <div className="pl-12 pr-3 pb-3">
-                        {category.subcategories.map((sub, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => handleSubcategoryClick(sub.slug)}
-                            className="w-full flex items-center justify-between py-2 px-3 text-sm text-gray-600 hover:text-[#eb8749] hover:bg-orange-50 rounded-lg mb-1 transition-colors text-left"
-                          >
-                            <span className="font-medium">{sub.name}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Sidebar Footer */}
-              <div className="mt-6 p-4 bg-linear-to-r from-[#eb8749]/5 to-[#7b3306]/5 rounded-lg border border-orange-100">
+              {/* Quick Access */}
+              <div className="mt-6 p-4 bg-linear-to-r from-[#eb8749]/5 to-[#7b3306]/5 rounded-lg border border-orange-100 mx-3">
                 <h4 className="font-semibold text-gray-800 mb-3">
                   Special Collections
                 </h4>
@@ -393,10 +522,13 @@ const Navbar = () => {
                     { name: "Summer Special", slug: "lehengas" },
                     { name: "Wedding Season", slug: "sarees" },
                     { name: "Luxury Edition", slug: "lehengas" },
-                  ].map((collection) => (
+                  ].map((collection, idx) => (
                     <button
-                      key={collection.name}
-                      onClick={() => handleCategoryClick(collection.slug)}
+                      key={idx}
+                      onClick={() => {
+                        handleCategoryClick(collection.slug);
+                        setIsSidebarOpen(false);
+                      }}
                       className="w-full text-left block py-2 px-3 text-[#7b3306] hover:text-[#eb8749] hover:bg-white rounded transition-colors"
                     >
                       {collection.name}
@@ -409,7 +541,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Add padding to main content to avoid overlap with bottom nav */}
       <div className="lg:hidden"></div>
     </>
   );

@@ -22,8 +22,6 @@ export default function ShopByOccasion() {
   ];
 
   const navigate = useNavigate();
-  const firstRow = occasions.slice(0, 3);
-  const secondRow = occasions.slice(3, 7);
 
   return (
     <div className="w-full py-12 md:py-16">
@@ -38,12 +36,12 @@ export default function ShopByOccasion() {
         </p>
       </div>
 
-      {/* FIRST ROW */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-4 md:px-0">
-        {firstRow.map((item) => (
+      {/* Mobile: All items in 2 columns */}
+      <div className="md:hidden max-w-7xl mx-auto grid grid-cols-2 gap-3 px-4 ">
+        {occasions.map((item) => (
           <div
             key={item.id}
-            className="relative overflow-hidden group cursor-pointer"
+            className="relative overflow-hidden group cursor-pointer justify-center"
           >
             <img
               src={item.img}
@@ -52,50 +50,68 @@ export default function ShopByOccasion() {
               className="
                 w-full 
                 rounded-xl
-                h-48 sm:h-52 md:h-56
+                h-40
                 object-cover
                 transition-transform
                 duration-300
-                group-hover:scale-101
+                group-hover:scale-105
               "
             />
-            {/* <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 md:px-6 py-1.5 md:py-2 rounded-md">
-              <p className="font-semibold text-[#5c2c1a] text-sm md:text-lg text-center">
-                {item.title}
-              </p>
-            </div> */}
           </div>
         ))}
       </div>
 
-      {/* SECOND ROW */}
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 pt-5 px-4 md:px-0">
-        {secondRow.map((item) => (
-          <div
-            key={item.id}
-            className="relative overflow-hidden group cursor-pointer"
-          >
-            <img
-              src={item.img}
-              alt={item.title}
-              onClick={() => navigate(`/occasion/${item.slug}`)}
-              className="
-                w-full
-                h-40 sm:h-48 md:h-56
-                object-cover
-                transition-transform
-                duration-300
-                group-hover:scale-101
-                rounded-xl
-              "
-            />
-            {/* <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 md:px-6 py-1.5 md:py-2 rounded-md">
-              <p className="font-semibold text-[#5c2c1a] text-xs sm:text-sm md:text-lg text-center">
-                {item.title}
-              </p>
-            </div> */}
-          </div>
-        ))}
+      {/* Desktop: Original layout */}
+      <div className="hidden md:block">
+        {/* FIRST ROW */}
+        <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3">
+          {occasions.slice(0, 3).map((item) => (
+            <div
+              key={item.id}
+              className="relative overflow-hidden group cursor-pointer"
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                onClick={() => navigate(`/occasion/${item.slug}`)}
+                className="
+                  w-full 
+                  rounded-xl
+                  h-56
+                  object-cover
+                  transition-transform
+                  duration-300
+                  group-hover:scale-105
+                "
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* SECOND ROW */}
+        <div className="max-w-7xl mx-auto grid grid-cols-4 gap-3 pt-5">
+          {occasions.slice(3, 7).map((item) => (
+            <div
+              key={item.id}
+              className="relative overflow-hidden group cursor-pointer"
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                onClick={() => navigate(`/occasion/${item.slug}`)}
+                className="
+                  w-full
+                  h-56
+                  object-cover
+                  transition-transform
+                  duration-300
+                  group-hover:scale-105
+                  rounded-xl
+                "
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

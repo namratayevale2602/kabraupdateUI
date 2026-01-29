@@ -442,10 +442,10 @@ export default function Categorydetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header Section */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-1">
             <button
@@ -464,19 +464,19 @@ export default function Categorydetail() {
               {data.title}
             </h1>
             <div className="w-20 h-1 bg-amber-500 my-2"></div>
-            <p className="text-gray-600 max-w-3xl">{data.description}</p>
+            {/* <p className="text-gray-600 max-w-3xl">{data.description}</p> */}
           </div>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-        {/* Category Navigation */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        {/* Category Navigation - Now scrollable on mobile */}
+        <div className="mb-2 md:mb-4">
+          <h3 className="md:text-lg text-sm font-semibold text-gray-900 mb-2">
             Browse by Type
-          </h2>
-          <div className="flex flex-wrap gap-2 mb-6">
+          </h3>
+          <div className="flex overflow-x-auto mb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:gap-2 sm:overflow-visible">
             {data.subCategories.map((cat, index) => (
               <button
                 key={index}
@@ -485,11 +485,12 @@ export default function Categorydetail() {
                   setSelectedSub(cat.children[0]);
                 }}
                 className={`
-                  px-5 py-2.5 rounded-full font-medium text-sm transition-all
+                  flex-shrink-0 px-2 py-1 md:px-3 md:py-2 rounded-full font-medium text-sm transition-all
+                  whitespace-nowrap mr-3 sm:mr-0
                   ${
                     selectedCategory?.name === cat.name
                       ? "bg-amber-600 text-white shadow-lg"
-                      : "bg-white text-gray-700 hover:bg-gray-100 shadow"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }
                 `}
               >
@@ -499,22 +500,23 @@ export default function Categorydetail() {
           </div>
         </div>
 
-        {/* Sub-category Navigation */}
+        {/* Sub-category Navigation - Also scrollable on mobile */}
         {selectedCategory && (
-          <div className="mb-10">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="md:mb-5">
+            <h3 className="md:text-lg text-sm font-semibold text-gray-900 mb-2">
               Select from {selectedCategory.name}
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:gap-3 sm:overflow-visible">
               {selectedCategory.children.map((sub, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedSub(sub)}
                   className={`
-                    px-4 py-2 rounded-lg font-medium text-sm transition-all
+                    flex-shrink-0 px-2 py-1 md:px-3 md:py-2 rounded-full font-medium text-sm transition-all
+                    whitespace-nowrap mr-3 sm:mr-0
                     ${
                       selectedSub?.slug === sub.slug
-                        ? "bg-orange-500 text-white shadow-md"
+                        ? "bg-amber-600 text-white shadow-md"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                     }
                   `}
@@ -530,7 +532,7 @@ export default function Categorydetail() {
         {selectedSub && (
           <div>
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="md:text-2xl font-bold text-gray-900">
                 {selectedSub.name}
               </h3>
               <p className="text-gray-600 mt-2">
@@ -540,7 +542,7 @@ export default function Categorydetail() {
             </div>
 
             {selectedSub.images && selectedSub.images.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {selectedSub.images.map((img, index) => (
                   <div
                     key={index}
@@ -550,18 +552,18 @@ export default function Categorydetail() {
                       <img
                         src={img}
                         alt={`${selectedSub.name} - ${index + 1}`}
-                        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-50 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
                     </div>
-                    <div className="p-4">
-                      <h4 className="font-semibold text-gray-900">
+                    <div className="p-2 md:p-4">
+                      <h4 className="md:font-semibold text-sm text-gray-900">
                         {selectedSub.name}
                       </h4>
-                      <button className="mt-3 w-full bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition-colors font-medium">
-                        View Details
+                      <button className="md:mt-3 mt-1 w-full bg-amber-600 text-white md:py-2 py-1 rounded-lg hover:bg-amber-700 transition-colors md:font-medium text-sm">
+                        Enquiry Now
                       </button>
                     </div>
                   </div>
