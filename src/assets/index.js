@@ -116,11 +116,11 @@ import desginerSaree1 from "./sarees/desginerSaree1.png";
 import desginerSaree2 from "./sarees/desginerSaree2.png";
 
 import desginerSreee3 from "./sarees/desginerSreee3.png";
-import BanarasiGeorgette from "./sarees/BanarasiGeorgette.png";
-import BanarasiKadhwa from "./sarees/BanarasiKadhwa.png";
-import BanarasiOrganza from "./sarees/BanarasiOrganza.png";
-import BanarasiTissue from "./sarees/BanarasiTissue.png";
-import BandhaniSaree from "./sarees/BandhaniSaree.png";
+import BanarasiGeorgette from "./sarees/banarasigeorgette.png";
+import BanarasiKadhwa from "./sarees/banarasikadhwa.png";
+import BanarasiOrganza from "./sarees/banarasiorganza.png";
+import BanarasiTissue from "./sarees/banarasitissue.png";
+import BandhaniSaree from "./sarees/bandhanisaree.png";
 import FancySaree from "./sarees/FancySaree.png";
 import KanchipuramPureHalfFineJari from "./sarees/KanchipuramPureHalfFineJari.png";
 import OrganzaSaree from "./sarees/OrganzaSaree.png";
