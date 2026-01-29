@@ -24,9 +24,8 @@ const categoryData = {
             name: "Kanchipuram Pure Half Fine Jari",
             slug: "kanchipuram-half-fine-jari",
             images: [
-              images.kanchipuram_half_fine,
+              images.KanchipuramPureHalfFineJari,
               images.kanchipuram_half_fine2,
-              images.kanchipuram_half_fine3,
             ],
           },
         ],
@@ -37,32 +36,32 @@ const categoryData = {
           {
             name: "Banarasi Silk Sarees",
             slug: "banarasi-silk",
-            images: [images.banarasi1, images.banarasi2, images.banarasisilk3],
+            images: [images.banarasi1, images.banarasi2],
           },
           {
             name: "Banarasi Kadhwa Sarees",
             slug: "banarasi-kadhwa",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.BanarasiKadhwa],
           },
           {
             name: "Banarasi Tussar Weaving",
             slug: "banarasi-tussar",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.PureTussarEmbroidery],
           },
           {
             name: "Banarasi Organza",
             slug: "banarasi-organza",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.BanarasiOrganza],
           },
           {
             name: "Banarasi Georgette Saree",
             slug: "banarasi-georgette",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.BanarasiGeorgette],
           },
           {
             name: "Banarasi Tissue Saree",
             slug: "banarasi-tissue",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.BanarasiTissue],
           },
         ],
       },
@@ -75,23 +74,23 @@ const categoryData = {
             images: [
               images.desginerSaree1,
               images.desginerSaree2,
-              images.banarasisilk3,
+              images.PureDesignerEmbroidery,
             ],
           },
           {
             name: "Fancy Sarees",
             slug: "fancy-sarees",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.FancySaree],
           },
           {
             name: "Organza Sarees",
             slug: "organza-sarees",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.OrganzaSaree],
           },
           {
             name: "Bandhani Sarees",
             slug: "bandhani-sarees",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.BandhaniSaree],
           },
           {
             name: "Fancy Weaving Saree",
@@ -106,7 +105,7 @@ const categoryData = {
           {
             name: "Pure Tussar Embroidery Sarees",
             slug: "pure-tussar-embroidery",
-            images: [images.banarasikadhwa, images.banarasikadhwa1],
+            images: [images.PureTussarEmbroidery],
           },
           {
             name: "Ready To Wear Saree",

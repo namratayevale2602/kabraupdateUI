@@ -115,6 +115,18 @@ import weddingsaree1 from "./sarees/weddingsaree1.png";
 import desginerSaree1 from "./sarees/desginerSaree1.png";
 import desginerSaree2 from "./sarees/desginerSaree2.png";
 
+import desginerSreee3 from "./sarees/desginerSreee3.png";
+import BanarasiGeorgette from "./sarees/BanarasiGeorgette.png";
+import BanarasiKadhwa from "./sarees/BanarasiKadhwa.png";
+import BanarasiOrganza from "./sarees/BanarasiOrganza.png";
+import BanarasiTissue from "./sarees/BanarasiTissue.png";
+import BandhaniSaree from "./sarees/BandhaniSaree.png";
+import FancySaree from "./sarees/FancySaree.png";
+import KanchipuramPureHalfFineJari from "./sarees/KanchipuramPureHalfFineJari.png";
+import OrganzaSaree from "./sarees/OrganzaSaree.png";
+import PureDesignerEmbroidery from "./sarees/PureDesignerEmbroidery.png";
+import PureTussarEmbroidery from "./sarees/PureTussarEmbroidery.png";
+
 import bandhanilehenga from "./lengha/bandhanilehenga.png";
 import bandhanilehenga1 from "./lengha/bandhanilehenga1.png";
 import bridallehenga from "./lengha/bridallehenga.png";
@@ -297,6 +309,17 @@ export {
   KanchipuramBrocket,
   desginerSaree1,
   desginerSaree2,
+  desginerSreee3,
+  BanarasiGeorgette,
+  BanarasiKadhwa,
+  BanarasiOrganza,
+  BanarasiTissue,
+  BandhaniSaree,
+  FancySaree,
+  KanchipuramPureHalfFineJari,
+  OrganzaSaree,
+  PureDesignerEmbroidery,
+  PureTussarEmbroidery,
 };
 
 // old
