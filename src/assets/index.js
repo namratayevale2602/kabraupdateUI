@@ -120,7 +120,7 @@ import BanarasiGeorgette from "./sarees/banarasigeorgette.png";
 import BanarasiKadhwa from "./sarees/banarasikadhwa.png";
 import BanarasiOrganza from "./sarees/banarasiorganza.png";
 import BanarasiTissue from "./sarees/banarasitissue.png";
-import BandhaniSaree from "./sarees/bandhanisaree.png";
+import BandhaniSaree from "./sarees/BandhaniSaree.png";
 import FancySaree from "./sarees/FancySaree.png";
 import KanchipuramPureHalfFineJari from "./sarees/KanchipuramPureHalfFineJari.png";
 import OrganzaSaree from "./sarees/OrganzaSaree.png";
